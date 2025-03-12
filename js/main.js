@@ -1,5 +1,7 @@
-const emojis =  ['💨', '🤪', '😜', '🤡', '🥳', '🤯', '🙃', '😹', '🤣', '😆', '😛', '😎', '🤑', '🤓', '😈', '👻', 
-                 '🤠', '🦄', '🍕', '🎉', '🌈', '💀', '🔥', '🍿', '🎁', '👑', '🎧', '🎤', '🐵', '🦋', '🍉', '💎']; // More emojis added
+const emojis=  ['💨', '🤪', '😜', '🤡', '🥳', '🤯', '🙃', '😹', '🤣', '😆', '😛', '😎', '🤑', '🤓', '😈', '👻', 
+                 '🤠', '🦄', '🍕', '🎉', '🌈', '💀', '🔥', '🍿', '🎁', '👑', '🎧', '🎤', '🐵', '🦋', '🍉', '💎']; 
+                 
+
 let cards = [...emojis, ...emojis]; // Duplicate for pairs
 let flippedCards = [];
 let matchedPairs = 0;
@@ -104,7 +106,6 @@ function updateTimer() {
 
 function flipCard() {
   if (flippedCards.length >= 2 || this.classList.contains("flipped") || gamePaused) return;
-  flipSound.play();
 
   this.classList.add("flipped");
   this.textContent = this.dataset.emoji;
@@ -120,7 +121,6 @@ function flipCard() {
 function checkMatch() {
   const [card1, card2] = flippedCards;
   if (card1.dataset.emoji === card2.dataset.emoji) {
-    matchSound.play();
     card1.classList.add("matched");
     card2.classList.add("matched");
     matchedPairs++;
@@ -138,7 +138,8 @@ function checkMatch() {
   // If all pairs are matched, show the win message
   if (matchedPairs === cards.length / 2) {
     document.getElementById("youWinMessage").style.display = "block";
-    winSound.play();
+  clearInterval(timerInterval);
+
   }
   flippedCards = [];
 }
