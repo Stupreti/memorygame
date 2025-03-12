@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  color: white;
+  font-size: 28px;
+}
+.game-info {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+.memory-game {
+  display: grid;
+  gap: 10px;
+  margin: auto;
+}
+.card {
+  width: 80px; /* Decreased size */
+  height: 80px; /* Decreased size */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px; /* Decreased font size */
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+.card:hover{
+  background: rgba(255, 255, 255, 0.2);
+}
+.card.flipped {
+  background: #ff9800;
+}
+.card.matched {
+  background: #4caf50;
+  pointer-events: none;
+}
+.buttons {
+  margin-top: 15px;
+}
+.btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+.restart-btn {
+  background: #f44336;
+}
+.stop-btn {
+  background: #2196F3;
+}
+.difficulty-select {
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  color: white;
+  background-color: #2196F3;
+  border-radius: 5px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.win-message, .game-over-message, .stopped-message {
+  font-size: 22px;
+  color: #4caf50;
+  margin-top: 15px;
+  display: none;
+}
+.game-over-message {
+  color: #f44336;
+}
+.stopped-message {
+  color: orange;
+}
+.you-win-message {
+  font-size: 48px;
+  color: #4caf50;
+  font-weight: bold;
+  display: none;
+  margin-top: 30px;
+}
